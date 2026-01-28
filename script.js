@@ -1,4 +1,4 @@
-const API_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+const API_URL = "https://script.google.com/macros/s/AKfycbxrmNpnP0JGHW_Ts-hstJxQBVNQ-jILXJwE5yhSUfAPT_z1ulex02dLiwclCDHHf-O9WA/exec";
 
 let currentValue = 0;
 
@@ -52,4 +52,5 @@ setInterval(fetchCount, 10000);
 
 fetchCount();
 setInterval(fetchCount, 10000);
+
 
