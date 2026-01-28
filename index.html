@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Live Registration Count</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Event Registration</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>🎉 Event Registrations</h1>
-    <p class="subtitle">Live updating every 10 seconds</p>
+  <main class="card">
+    <h1 class="title">Live Registrations</h1>
+    <p class="subtitle">Updating in real time</p>
 
-    <div class="count-box">
+    <div class="counter">
       <span id="count">0</span>
-      <p>People Registered</p>
+      <span class="label">Registered</span>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="capacity-text">
+        <span id="current">0</span> / <span id="max">500</span> seats filled
+      </p>
     </div>
 
     <p class="last-updated" id="updated">Loading...</p>
-  </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
