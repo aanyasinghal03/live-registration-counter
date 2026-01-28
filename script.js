@@ -1,18 +1,24 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbxrmNpnP0JGHW_Ts-hstJxQBVNQ-jILXJwE5yhSUfAPT_z1ulex02dLiwclCDHHf-O9WA/exec";
-const MAX_CAPACITY = 500;
+const API_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
-let currentDisplayed = 0;
+let currentValue = 0;
 
-function animateCount(target) {
-  const duration = 500;
-  const start = currentDisplayed;
+function animateCounter(target) {
+  const start = currentValue;
+  const duration = 600;
   const startTime = performance.now();
 
   function update(time) {
     const progress = Math.min((time - startTime) / duration, 1);
     const value = Math.floor(start + (target - start) * progress);
-    document.getElementById("count").textContent = value;
-    currentDisplayed = value;
+
+    const counter = document.getElementById("count");
+    counter.textContent = value;
+
+    // punch animation on update
+    counter.style.transform = "scale(1.08)";
+    setTimeout(() => counter.style.transform = "scale(1)", 120);
+
+    currentValue = value;
 
     if (progress < 1) {
       requestAnimationFrame(update);
@@ -27,22 +33,23 @@ async function fetchCount() {
     const res = await fetch(API_URL);
     const data = await res.json();
 
-    const count = data.count;
-    animateCount(count);
-
-    document.getElementById("current").textContent = count;
-    document.getElementById("max").textContent = MAX_CAPACITY;
-
-    const percent = Math.min((count / MAX_CAPACITY) * 100, 100);
-    document.getElementById("progressFill").style.width = percent + "%";
+    if (data.count !== currentValue) {
+      animateCounter(data.count);
+    }
 
     document.getElementById("updated").textContent =
-      "Last updated: " + new Date().toLocaleTimeString();
+      "Last sync: " + new Date().toLocaleTimeString();
 
   } catch (err) {
-    console.error("Failed to fetch count", err);
+    console.error("API error", err);
+    document.getElementById("updated").textContent = "Connection error";
   }
 }
 
 fetchCount();
 setInterval(fetchCount, 10000);
+
+
+fetchCount();
+setInterval(fetchCount, 10000);
+
