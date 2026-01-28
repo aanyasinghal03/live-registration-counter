@@ -1,4 +1,4 @@
-const API_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL";
+const API_URL = "https://script.google.com/macros/s/AKfycbxrmNpnP0JGHW_Ts-hstJxQBVNQ-jILXJwE5yhSUfAPT_z1ulex02dLiwclCDHHf-O9WA/exec";
 
 async function fetchCount() {
   try {
@@ -15,3 +15,4 @@ async function fetchCount() {
 
 fetchCount();
 setInterval(fetchCount, 10000);
+
