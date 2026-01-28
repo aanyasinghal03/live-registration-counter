@@ -2,33 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Live Event Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Registration Counter</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <main class="card">
-    <h1 class="title">Live Registrations</h1>
+  <div class="background-grid"></div>
 
-    <div class="counter">
+  <main class="container">
+    <p class="live">● LIVE</p>
+
+    <div class="counter-wrapper">
       <span id="count">0</span>
-      <span class="label">Registered</span>
+      <p class="label">REGISTRATIONS</p>
     </div>
 
-    <div class="progress-container">
-      <div class="progress-bar">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
-      <p class="capacity-text">
-        <span id="current">0</span> / <span id="max">500</span> seats filled
-      </p>
-    </div>
-
-    <p class="last-updated" id="updated">Loading...</p>
+    <p class="updated" id="updated">Connecting...</p>
   </main>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+
 
